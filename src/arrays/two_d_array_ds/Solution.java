@@ -12,21 +12,18 @@ public class Solution {
 
     static int hourglassSum(int[][] arr) {
         int max = MIN_SUM;
-        int temp_result = 0;
         for (int i = 0; i < WIDTH - STEP; i++) {
             for (int j = 0; j < HIGHT - STEP; j++) {
+                int temp_result = 0;
                 for (int k = j; k <= j + STEP; k++) {
                     temp_result = temp_result + arr[i][k];
                     temp_result = temp_result + arr[i + STEP][k];
                 }
-
                 temp_result = temp_result + arr[i + 1][j + 1];
 
                 if (temp_result > max) { 
                     max = temp_result;
-                    System.out.println("max: " + max);
                 }
-                temp_result = 0;
             }
         }
         return max;
